@@ -1,15 +1,18 @@
 import Post from "@/components/Post";
+import getPosts from "@/utils/fetch/getPosts";
 
-export default function PostsPage() {
+export default async function PostsPage() {
+  const data: IPost[] = await getPosts();
+
   return (
-    <main className="flex min-h-screen w-full flex-row justify-center">
-      <Post title="Lorem ipsum" author="adipisicing elit">
-        dolor sit amet consectetur adipisicing elit. Quia quam quidem
-        praesentium, labore repellendus nostrum recusandae. Culpa quisquam et
-        ipsa aspernatur assumenda praesentium voluptatibus deleniti voluptatum
-        fugiat minus, blanditiis cumque nisi nobis facere dolorem maiores
-        aperiam,
-      </Post>
+    <main className="flex min-h-screen w-full justify-center">
+      <div className="grid h-fit w-full grid-cols-1 justify-items-center">
+        {data.map((post) => (
+          <Post key={post.id} title={post.title} author={post.author}>
+            {post.body}
+          </Post>
+        ))}
+      </div>
     </main>
   );
 }

@@ -23,6 +23,18 @@ const posts = [
     author: "Brian",
     body: "This is the body of Hello World",
   },
+  {
+    id: 5,
+    title: "Title 5",
+    author: "Brian",
+    body: "This is the body of Hello World",
+  },
+  {
+    id: 6,
+    title: "Title 6",
+    author: "Brian",
+    body: "This is the body of Hello World",
+  },
 ];
 
 export default posts;
