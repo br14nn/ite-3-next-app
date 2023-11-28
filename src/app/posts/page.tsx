@@ -1,18 +1,16 @@
 import Post from "@/components/Post";
-import getPosts from "@/utils/fetch/getPosts";
+import { Suspense } from "react";
+import Loading from "../loading";
+import PostLists from "./PostLists";
 
-export default async function PostsPage() {
-  const data: IPost[] = await getPosts();
-
+export default function PostsPage() {
   return (
-    <main className="flex min-h-screen w-full justify-center">
-      <div className="grid h-fit w-full grid-cols-1 justify-items-center">
-        {data.map((post) => (
-          <Post key={post.id} title={post.title} author={post.author}>
-            {post.body}
-          </Post>
-        ))}
-      </div>
+    <main className="flex min-h-screen w-full flex-col items-center gap-12 p-24">
+      <h1 className="text-3xl font-bold text-white">All Posts</h1>
+
+      <Suspense fallback={<Loading />}>
+        <PostLists />
+      </Suspense>
     </main>
   );
 }

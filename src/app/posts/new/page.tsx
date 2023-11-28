@@ -30,10 +30,11 @@ export default function PostNewPage() {
   };
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center">
-      Create New Post Page
+    <main className="flex min-h-screen w-full flex-col items-center gap-12 p-24">
+      <h1 className="text-3xl font-bold text-white">Create New Post</h1>
+
       <form
-        className="mt-12 flex w-full max-w-[500px] flex-col gap-4 text-black"
+        className="flex w-full max-w-[500px] flex-col gap-4 text-black"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col gap-1">
