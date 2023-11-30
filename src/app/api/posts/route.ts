@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import posts from "@/utils/posts";
+import { PrismaClient } from "@prisma/client";
 
 export async function GET(req: NextRequest) {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 5000)); //This line is just for testing the loading state. Remove this when using non-static data.
+    const prisma = new PrismaClient();
+    const data = await prisma.post.findMany();
 
-    return NextResponse.json(posts);
+    return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json({ ok: false });
   }

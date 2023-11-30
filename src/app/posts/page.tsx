@@ -1,4 +1,3 @@
-import Post from "@/components/Post";
 import { Suspense } from "react";
 import Loading from "../loading";
 import PostLists from "./PostLists";
